@@ -1,0 +1,6 @@
+<label>Name: </label><%=@bank.name%><br>
+<label>Customers:</label><br>
+<%@bank.accounts.each do |account|%>
+<%=link_to account.customer.name, account.customer %> <label>$</label><%=account.balance%><br>
+<%end%>
+<%=link_to "Back", banks_path %>

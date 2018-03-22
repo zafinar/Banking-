@@ -1,0 +1,10 @@
+<%= form_for @account do |f| %>
+<%= f.collection_select :bank_id, Bank.all, :id, :name %>
+<%= f.collection_select :customer_id, Customer.all, :id, :name %>
+<%= f.fields_for :customer, @account.build_customer do |c| %>
+  <%c.text_field :name %>
+<%end%>
+<label>Deposit</label><%= f.number_field :balance %>
+
+<%= f.submit %>
+<%end%>
